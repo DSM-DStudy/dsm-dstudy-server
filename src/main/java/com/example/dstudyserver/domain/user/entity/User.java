@@ -1,5 +1,6 @@
 package com.example.dstudyserver.domain.user.entity;
 
+import com.example.dstudyserver.domain.study.entity.Study;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -30,4 +31,8 @@ public class User {
 
     @Column
     private Role role;
+
+    @ManyToOne
+    @JoinColumn(name = "study_id")
+    private Study study;
 }

@@ -1,10 +1,13 @@
 package com.example.dstudyserver.domain.study.entity;
 
+import com.example.dstudyserver.domain.user.entity.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Entity
 @Getter
@@ -39,4 +42,7 @@ public class Study {
 
     @Column
     private int people_count;
+
+    @OneToMany(mappedBy = "study", cascade = CascadeType.REMOVE)
+    private List<User> userList;
 }
