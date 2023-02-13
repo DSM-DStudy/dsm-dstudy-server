@@ -1,5 +1,6 @@
 package com.example.dstudyserver.domain.study.entity;
 
+import com.example.dstudyserver.domain.good.entity.Good;
 import com.example.dstudyserver.domain.user.entity.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -45,4 +46,7 @@ public class Study {
 
     @OneToMany(mappedBy = "study", cascade = CascadeType.REMOVE)
     private List<User> userList;
+
+    @OneToMany(mappedBy = "study", cascade = CascadeType.REMOVE)
+    private List<Good> goodList;
 }

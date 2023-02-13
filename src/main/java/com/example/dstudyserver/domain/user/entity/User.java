@@ -1,11 +1,14 @@
 package com.example.dstudyserver.domain.user.entity;
 
+import com.example.dstudyserver.domain.good.entity.Good;
 import com.example.dstudyserver.domain.study.entity.Study;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Entity
 @Getter
@@ -35,4 +38,7 @@ public class User {
     @ManyToOne
     @JoinColumn(name = "study_id")
     private Study study;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
+    private List<Good> goodList;
 }
