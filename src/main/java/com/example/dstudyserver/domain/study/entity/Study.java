@@ -45,6 +45,10 @@ public class Study {
     @Column
     private int people_count;
 
+    @OneToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
     @OneToMany(mappedBy = "study", cascade = CascadeType.REMOVE)
     private List<User> userList;
 

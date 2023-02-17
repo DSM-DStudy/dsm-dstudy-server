@@ -22,6 +22,9 @@ public class User {
     private Integer id;
 
     @Column
+    private int student_id;
+
+    @Column
     private String email;
 
     @Column
