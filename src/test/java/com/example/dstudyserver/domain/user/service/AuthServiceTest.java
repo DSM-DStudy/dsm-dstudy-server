@@ -1,5 +1,6 @@
 package com.example.dstudyserver.domain.user.service;
 
+import com.example.dstudyserver.domain.user.controller.dto.request.LoginRequest;
 import com.example.dstudyserver.domain.user.controller.dto.request.SignupRequest;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
