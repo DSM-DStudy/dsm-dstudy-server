@@ -48,4 +48,9 @@ public class User {
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
     private List<Comment> commentList;
+
+    public void editProfile(String introduction, String image){
+        this.introduction = introduction;
+        this.image = image;
+    }
 }

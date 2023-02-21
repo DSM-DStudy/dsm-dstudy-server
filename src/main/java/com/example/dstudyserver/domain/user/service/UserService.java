@@ -27,4 +27,11 @@ public class UserService {
                 .goodList(user.getGoodList())
                 .build();
     }
+
+    @Transactional
+    public void editProfile(EditProfileRequest request){
+        User user = userRepository.findByEmail(SecurityUtil.getEmail()).orElseThrow(UserNotFoundException::new);
+        user.editProfile(request.getIntroduction(), request.getImage());
+        userRepository.save(user);
+    }
 }
