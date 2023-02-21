@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Join {
+public class Entry {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
