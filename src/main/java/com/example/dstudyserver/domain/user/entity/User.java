@@ -57,4 +57,10 @@ public class User {
     public void setStudy(Study study){
         this.study = study;
     }
+
+    public void editUser(String email, String password, int student_id){
+        this.email = email;
+        this.password = password;
+        this.student_id = student_id;
+    }
 }
