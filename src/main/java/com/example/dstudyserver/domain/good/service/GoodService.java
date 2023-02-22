@@ -2,6 +2,7 @@ package com.example.dstudyserver.domain.good.service;
 
 import com.example.dstudyserver.domain.good.entity.Good;
 import com.example.dstudyserver.domain.good.exception.GoodConflictException;
+import com.example.dstudyserver.domain.good.exception.GoodNotFoundException;
 import com.example.dstudyserver.domain.good.repository.GoodRepository;
 import com.example.dstudyserver.domain.study.entity.Study;
 import com.example.dstudyserver.domain.study.exception.StudyNotFoundException;
@@ -42,5 +43,16 @@ public class GoodService {
         else {
             throw new GoodConflictException();
         }
+    }
+
+    @Transactional
+    public void deleteGood(int studyId){
+        User user = userRepository.findByEmail(SecurityUtil.getEmail()).orElseThrow(UserNotFoundException::new);
+        Study study = studyRepository.findById(studyId).orElseThrow(StudyNotFoundException::new);
+        Good good = goodRepository.findByUserAndStudy(user, study).orElseThrow(GoodNotFoundException::new);
+        goodRepository.delete(good);
+
+        study.setGoodCount(study.getLike_count() - 1);
+        studyRepository.save(study);
     }
 }
