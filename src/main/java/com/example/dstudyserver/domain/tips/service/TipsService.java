@@ -66,4 +66,14 @@ public class TipsService {
                 p.getContent(),
                 p.getUser())).collect(Collectors.toList());
     }
+
+    @Transactional
+    public List<TipsResponse> search(String keyword){
+        List<Tips> tips = tipsRepository.findByTitleContaining(keyword);
+        return tips.stream().map(p -> new TipsResponse(
+                p.getId(),
+                p.getTitle(),
+                p.getContent(),
+                p.getUser())).collect(Collectors.toList());
+    }
 }
