@@ -3,6 +3,7 @@ package com.example.dstudyserver.domain.tips.controller;
 import com.example.dstudyserver.domain.tips.controller.dto.request.TipsRequest;
 import com.example.dstudyserver.domain.tips.controller.dto.response.TipsResponse;
 import com.example.dstudyserver.domain.tips.service.TipsService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,7 +15,7 @@ public class TipsController {
     private final TipsService tipsService;
 
     @PostMapping("/tip")
-    public TipsResponse save(@RequestBody TipsRequest request){
+    public TipsResponse save(@Valid @RequestBody TipsRequest request){
         return tipsService.save(request);
     }
 
