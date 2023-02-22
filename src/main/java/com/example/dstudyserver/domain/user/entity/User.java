@@ -53,4 +53,8 @@ public class User {
         this.introduction = introduction;
         this.image = image;
     }
+
+    public void setStudy(Study study){
+        this.study = study;
+    }
 }
