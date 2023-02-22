@@ -57,4 +57,8 @@ public class Study {
 
     @OneToMany(mappedBy = "study", cascade = CascadeType.REMOVE)
     private List<Comment> commentList;
+
+    public void setGoodCount(int goodCount){
+        this.like_count = goodCount;
+    }
 }
