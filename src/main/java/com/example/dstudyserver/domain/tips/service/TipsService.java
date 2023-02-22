@@ -13,6 +13,9 @@ import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 @RequiredArgsConstructor
 public class TipsService {
@@ -52,5 +55,15 @@ public class TipsService {
                 .content(tips.getContent())
                 .user(tips.getUser())
                 .build();
+    }
+
+    @Transactional
+    public List<TipsResponse> tipsList(){
+        List<Tips> tips = tipsRepository.findAll();
+        return tips.stream().map(p -> new TipsResponse(
+                p.getId(),
+                p.getTitle(),
+                p.getContent(),
+                p.getUser())).collect(Collectors.toList());
     }
 }
