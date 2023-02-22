@@ -67,4 +67,16 @@ public class AdminService {
         user.editUser(request.getEmail(), passwordEncoder.encode(request.getPassword()), request.getId());
         userRepository.save(user);
     }
+
+    @Transactional
+    public void deleteUser(int user_id){
+        userRepository.deleteById(user_id);
+    }
+
+    @Transactional
+    public void withdrawal(int user_id){
+        User user = userRepository.findById(user_id).orElseThrow(UserNotFoundException::new);
+        user.setStudy(null);
+        userRepository.save(user);
+    }
 }
