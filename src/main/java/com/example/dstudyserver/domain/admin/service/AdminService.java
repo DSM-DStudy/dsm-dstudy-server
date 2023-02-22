@@ -1,6 +1,7 @@
 package com.example.dstudyserver.domain.admin.service;
 
 import com.example.dstudyserver.domain.admin.controller.dto.response.EntryResponse;
+import com.example.dstudyserver.domain.admin.controller.dto.response.UserResponse;
 import com.example.dstudyserver.domain.admin.exception.EntryNotFoundException;
 import com.example.dstudyserver.domain.join.entity.Entry;
 import com.example.dstudyserver.domain.join.repository.EntryRepository;
@@ -45,5 +46,14 @@ public class AdminService {
             userRepository.save(user);
             studyRepository.save(study);
         }
+    }
+
+    @Transactional
+    public List<UserResponse> userList(){
+        List<User> userList = userRepository.findAll();
+        return userList.stream().map(u -> new UserResponse(
+                u.getId(),
+                u.getEmail()
+        )).collect(Collectors.toList());
     }
 }
