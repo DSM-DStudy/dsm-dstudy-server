@@ -36,4 +36,9 @@ public class TipsService {
                 .user(tips.getUser())
                 .build();
     }
+
+    @Transactional
+    public void delete(int tips_id){
+        tipsRepository.deleteById(tips_id);
+    }
 }
