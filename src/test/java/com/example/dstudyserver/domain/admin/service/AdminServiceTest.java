@@ -19,5 +19,5 @@ public class AdminServiceTest {
 
         Assertions.assertEquals(list.size(), 0);
     }
-    
+
 }
