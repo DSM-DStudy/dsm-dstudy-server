@@ -49,6 +49,7 @@ public class AdminService {
 
             userRepository.save(user);
             studyRepository.save(study);
+            entryRepository.delete(entry);
         }
     }
 
