@@ -1,6 +1,7 @@
 package com.example.dstudyserver.domain.admin.cotroller;
 
 import com.example.dstudyserver.domain.admin.controller.dto.request.EntryRequest;
+import com.example.dstudyserver.domain.admin.controller.dto.request.UserRequest;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,6 +51,25 @@ public class AdminControllerTest {
     public void userList() throws Exception{
         mockMvc.perform(
                 MockMvcRequestBuilders.get("/admin/user/list")
+                        .header("Authorization", "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0QGdtYWlsLmNvbSIsImlhdCI6MTY3NzQ2NTY3NCwiZXhwIjoxNjc3NDY5Mjc0fQ.EcHR8w6o7FeIBP0qn7BlWTq4efaLVvyEAL7r4Jfan_Y")
+        ).andExpect(status().isOk());
+    }
+
+    @Test
+    public void editUser() throws Exception{
+        int id = 1;
+        String email = "test1@gmail.com";
+        String password = "1234";
+        int student_id = 3000;
+
+        UserRequest request = new UserRequest(id, email, password, student_id);
+        String json = objectMapper.writeValueAsString(request);
+
+        mockMvc.perform(
+                MockMvcRequestBuilders.patch("/admin/user")
+                        .content(json)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .accept(MediaType.APPLICATION_JSON)
                         .header("Authorization", "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0QGdtYWlsLmNvbSIsImlhdCI6MTY3NzQ2NTY3NCwiZXhwIjoxNjc3NDY5Mjc0fQ.EcHR8w6o7FeIBP0qn7BlWTq4efaLVvyEAL7r4Jfan_Y")
         ).andExpect(status().isOk());
     }
