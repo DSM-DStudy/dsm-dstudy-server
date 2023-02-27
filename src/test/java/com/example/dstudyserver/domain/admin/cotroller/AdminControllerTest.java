@@ -81,4 +81,12 @@ public class AdminControllerTest {
                         .header("Authorization", "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0QGdtYWlsLmNvbSIsImlhdCI6MTY3NzQ2NTY3NCwiZXhwIjoxNjc3NDY5Mjc0fQ.EcHR8w6o7FeIBP0qn7BlWTq4efaLVvyEAL7r4Jfan_Y")
         ).andExpect(status().isOk());
     }
+
+    @Test
+    public void secession() throws Exception{
+        mockMvc.perform(
+                MockMvcRequestBuilders.delete("/admin/study/1")
+                        .header("Authorization", "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0QGdtYWlsLmNvbSIsImlhdCI6MTY3NzQ2NTY3NCwiZXhwIjoxNjc3NDY5Mjc0fQ.EcHR8w6o7FeIBP0qn7BlWTq4efaLVvyEAL7r4Jfan_Y")
+        ).andExpect(status().isOk());
+    }
 }
