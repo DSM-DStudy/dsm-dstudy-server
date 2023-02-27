@@ -65,7 +65,7 @@ public class AdminService {
     @Transactional
     public void editUser(UserRequest request){
         User user = userRepository.findById(request.getId()).orElseThrow(UserNotFoundException::new);
-        user.editUser(request.getEmail(), passwordEncoder.encode(request.getPassword()), request.getId());
+        user.editUser(request.getEmail(), passwordEncoder.encode(request.getPassword()), request.getStudent_id());
         userRepository.save(user);
     }
 
