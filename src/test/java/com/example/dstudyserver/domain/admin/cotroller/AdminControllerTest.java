@@ -73,4 +73,15 @@ public class AdminControllerTest {
                         .header("Authorization", "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0QGdtYWlsLmNvbSIsImlhdCI6MTY3NzQ2NTY3NCwiZXhwIjoxNjc3NDY5Mjc0fQ.EcHR8w6o7FeIBP0qn7BlWTq4efaLVvyEAL7r4Jfan_Y")
         ).andExpect(status().isOk());
     }
+
+    @Test
+    public void deleteUser() throws Exception{
+        mockMvc.perform(
+                MockMvcRequestBuilders.delete("/admin/user/3")
+                        .header("Authorization", "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0QGdtYWlsLmNvbSIsImlhdCI6MTY3NzQ2NTY3NCwiZXhwIjoxNjc3NDY5Mjc0fQ.EcHR8w6o7FeIBP0qn7BlWTq4efaLVvyEAL7r4Jfan_Y")
+        ).andExpect(status().isOk());
+    }
+
+    @Test
+    public void
 }
