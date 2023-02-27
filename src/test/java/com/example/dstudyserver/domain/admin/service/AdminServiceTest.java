@@ -62,9 +62,9 @@ public class AdminServiceTest {
     }
 
     @Test
-    public void withdrawal(){
+    public void secession(){
         int user_id = 1;
 
-        adminService.withdrawal(user_id);
+        adminService.secession(user_id);
     }
 }

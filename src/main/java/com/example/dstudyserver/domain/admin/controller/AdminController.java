@@ -41,7 +41,7 @@ public class AdminController {
     }
 
     @DeleteMapping("/admin/study/{user_id}")
-    public void withdrawal(@PathVariable int user_id){
-        adminService.withdrawal(user_id);
+    public void secession(@PathVariable int user_id){
+        adminService.secession(user_id);
     }
 }

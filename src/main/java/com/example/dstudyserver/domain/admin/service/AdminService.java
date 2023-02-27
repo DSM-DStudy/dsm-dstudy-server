@@ -75,7 +75,7 @@ public class AdminService {
     }
 
     @Transactional
-    public void withdrawal(int user_id){
+    public void secession(int user_id){
         User user = userRepository.findById(user_id).orElseThrow(UserNotFoundException::new);
         user.setStudy(null);
         userRepository.save(user);
