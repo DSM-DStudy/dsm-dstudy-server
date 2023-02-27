@@ -45,4 +45,12 @@ public class AdminControllerTest {
                         .header("Authorization", "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0QGdtYWlsLmNvbSIsImlhdCI6MTY3NzQwODc5MiwiZXhwIjoxNjc3NDEyMzkyfQ.iG4__v_hT4wnLHdpCQt5P_yBRpGf6E9idPkODHfzghw")
         ).andExpect(status().isOk());
     }
+
+    @Test
+    public void userList() throws Exception{
+        mockMvc.perform(
+                MockMvcRequestBuilders.get("/admin/user/list")
+                        .header("Authorization", "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0QGdtYWlsLmNvbSIsImlhdCI6MTY3NzQ2NTY3NCwiZXhwIjoxNjc3NDY5Mjc0fQ.EcHR8w6o7FeIBP0qn7BlWTq4efaLVvyEAL7r4Jfan_Y")
+        ).andExpect(status().isOk());
+    }
 }
