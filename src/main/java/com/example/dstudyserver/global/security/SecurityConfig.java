@@ -1,4 +1,4 @@
-package com.example.dstudyserver.global.config;
+package com.example.dstudyserver.global.security;
 
 import com.example.dstudyserver.global.jwt.JwtAccessDeniedHandler;
 import com.example.dstudyserver.global.jwt.JwtAuthenticationEntryPoint;
