@@ -1,6 +1,5 @@
 package com.example.dstudyserver.global.security;
 
-import com.example.dstudyserver.domain.user.entity.Role;
 import com.example.dstudyserver.global.jwt.JwtAccessDeniedHandler;
 import com.example.dstudyserver.global.jwt.JwtAuthenticationEntryPoint;
 import com.example.dstudyserver.global.jwt.JwtFilter;
