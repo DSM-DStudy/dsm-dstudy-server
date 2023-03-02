@@ -23,7 +23,7 @@ public class AdminController {
     }
 
     @PostMapping("/admin/entry/{entry_id}")
-    public void accept(@RequestBody EntryRequest request, @PathVariable int entry_id){
+    public void accept(@RequestBody @Valid EntryRequest request, @PathVariable int entry_id){
         adminService.accept(request.isAccept(), entry_id);
     }
 
@@ -33,7 +33,7 @@ public class AdminController {
     }
 
     @PatchMapping("/admin/user")
-    public void editUser(@RequestBody UserRequest request){
+    public void editUser(@RequestBody @Valid UserRequest request){
         adminService.editUser(request);
     }
 
