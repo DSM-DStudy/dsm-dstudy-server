@@ -1,5 +1,6 @@
 package com.example.dstudyserver.domain.admin.service;
 
+import com.example.dstudyserver.domain.admin.controller.dto.request.AdminRequest;
 import com.example.dstudyserver.domain.admin.controller.dto.request.UserRequest;
 import com.example.dstudyserver.domain.admin.controller.dto.response.EntryResponse;
 import com.example.dstudyserver.domain.admin.controller.dto.response.UserResponse;
@@ -8,7 +9,9 @@ import com.example.dstudyserver.domain.join.entity.Entry;
 import com.example.dstudyserver.domain.join.repository.EntryRepository;
 import com.example.dstudyserver.domain.study.entity.Study;
 import com.example.dstudyserver.domain.study.repository.StudyRepository;
+import com.example.dstudyserver.domain.user.entity.Role;
 import com.example.dstudyserver.domain.user.entity.User;
+import com.example.dstudyserver.domain.user.exception.AlreadyExistException;
 import com.example.dstudyserver.domain.user.exception.UserNotFoundException;
 import com.example.dstudyserver.domain.user.repository.UserRepository;
 import jakarta.transaction.Transactional;
@@ -78,6 +81,19 @@ public class AdminService {
     public void secession(int user_id){
         User user = userRepository.findById(user_id).orElseThrow(UserNotFoundException::new);
         user.setStudy(null);
+        userRepository.save(user);
+    }
+
+    @Transactional
+    public void createAdmin(AdminRequest request){
+        if(userRepository.findByEmail(request.getEmail()).isPresent())
+            throw new AlreadyExistException();
+
+        User user = User.builder()
+                .email(request.getEmail())
+                .password(passwordEncoder.encode(request.getPassword()))
+                .role(Role.ADMIN)
+                .build();
         userRepository.save(user);
     }
 }
