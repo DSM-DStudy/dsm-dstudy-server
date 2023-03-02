@@ -1,5 +1,6 @@
 package com.example.dstudyserver.domain.admin.cotroller;
 
+import com.example.dstudyserver.domain.admin.controller.dto.request.AdminRequest;
 import com.example.dstudyserver.domain.admin.controller.dto.request.EntryRequest;
 import com.example.dstudyserver.domain.admin.controller.dto.request.UserRequest;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -87,6 +88,22 @@ public class AdminControllerTest {
         mockMvc.perform(
                 MockMvcRequestBuilders.delete("/admin/study/1")
                         .header("Authorization", "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0QGdtYWlsLmNvbSIsImlhdCI6MTY3NzQ2NTY3NCwiZXhwIjoxNjc3NDY5Mjc0fQ.EcHR8w6o7FeIBP0qn7BlWTq4efaLVvyEAL7r4Jfan_Y")
+        ).andExpect(status().isOk());
+    }
+
+    @Test
+    public void createAdmin() throws Exception{
+        String email = "testAdmin@gmail.com";
+        String password = "1234";
+
+        AdminRequest request = new AdminRequest(email, password);
+        String json = objectMapper.writeValueAsString(request);
+
+        mockMvc.perform(
+                MockMvcRequestBuilders.post("/admin")
+                        .content(json)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .accept(MediaType.APPLICATION_JSON)
         ).andExpect(status().isOk());
     }
 }
