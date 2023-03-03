@@ -34,7 +34,7 @@ public class AuthService {
                 .introduction(request.getIntroduction())
                 .image(request.getImage())
                 .student_id(request.getStudent_id())
-                .role(Role.USER)
+                .role(Role.ROLE_USER)
                 .build();
 
         userRepository.save(user);
