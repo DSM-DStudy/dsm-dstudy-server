@@ -37,6 +37,7 @@ public class User {
     private String image;
 
     @Column
+    @Enumerated(value = EnumType.STRING)
     private Role role;
 
     @ManyToOne

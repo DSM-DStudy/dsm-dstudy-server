@@ -8,7 +8,7 @@ import com.example.dstudyserver.domain.tips.repository.TipsRepository;
 import com.example.dstudyserver.domain.user.entity.User;
 import com.example.dstudyserver.domain.user.exception.UserNotFoundException;
 import com.example.dstudyserver.domain.user.repository.UserRepository;
-import com.example.dstudyserver.global.utils.SecurityUtil;
+import com.example.dstudyserver.global.security.SecurityUtil;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
