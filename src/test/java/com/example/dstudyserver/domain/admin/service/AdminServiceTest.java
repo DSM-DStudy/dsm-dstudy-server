@@ -1,5 +1,6 @@
 package com.example.dstudyserver.domain.admin.service;
 
+import com.example.dstudyserver.domain.admin.controller.dto.request.AdminRequest;
 import com.example.dstudyserver.domain.admin.controller.dto.request.UserRequest;
 import com.example.dstudyserver.domain.admin.controller.dto.response.EntryResponse;
 import com.example.dstudyserver.domain.admin.controller.dto.response.UserResponse;
@@ -62,9 +63,18 @@ public class AdminServiceTest {
     }
 
     @Test
-    public void withdrawal(){
+    public void secession(){
         int user_id = 1;
 
-        adminService.withdrawal(user_id);
+        adminService.secession(user_id);
+    }
+
+    @Test
+    public void createAdmin(){
+        String email = "admin@gmail.com";
+        String password = "1234";
+
+        AdminRequest request = new AdminRequest(email, password);
+        adminService.createAdmin(request);
     }
 }

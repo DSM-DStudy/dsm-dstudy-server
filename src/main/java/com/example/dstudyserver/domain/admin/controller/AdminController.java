@@ -1,10 +1,12 @@
 package com.example.dstudyserver.domain.admin.controller;
 
+import com.example.dstudyserver.domain.admin.controller.dto.request.AdminRequest;
 import com.example.dstudyserver.domain.admin.controller.dto.request.EntryRequest;
 import com.example.dstudyserver.domain.admin.controller.dto.request.UserRequest;
 import com.example.dstudyserver.domain.admin.controller.dto.response.EntryResponse;
 import com.example.dstudyserver.domain.admin.controller.dto.response.UserResponse;
 import com.example.dstudyserver.domain.admin.service.AdminService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,7 +23,7 @@ public class AdminController {
     }
 
     @PostMapping("/admin/entry/{entry_id}")
-    public void accept(@RequestBody EntryRequest request, @PathVariable int entry_id){
+    public void accept(@RequestBody @Valid EntryRequest request, @PathVariable int entry_id){
         adminService.accept(request.isAccept(), entry_id);
     }
 
@@ -31,7 +33,7 @@ public class AdminController {
     }
 
     @PatchMapping("/admin/user")
-    public void editUser(@RequestBody UserRequest request){
+    public void editUser(@RequestBody @Valid UserRequest request){
         adminService.editUser(request);
     }
 
@@ -41,7 +43,12 @@ public class AdminController {
     }
 
     @DeleteMapping("/admin/study/{user_id}")
-    public void withdrawal(@PathVariable int user_id){
-        adminService.withdrawal(user_id);
+    public void secession(@PathVariable int user_id){
+        adminService.secession(user_id);
+    }
+
+    @PostMapping("/admin")
+    public void createAdmin(@RequestBody @Valid AdminRequest request){
+        adminService.createAdmin(request);
     }
 }
