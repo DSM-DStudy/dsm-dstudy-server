@@ -92,7 +92,7 @@ public class AdminService {
         User user = User.builder()
                 .email(request.getEmail())
                 .password(passwordEncoder.encode(request.getPassword()))
-                .role(Role.ADMIN)
+                .role(Role.ROLE_ADMIN)
                 .build();
         userRepository.save(user);
     }

@@ -46,7 +46,7 @@ public class AuthService {
         if(!passwordEncoder.matches(request.getPassword(), user.getPassword()))
             throw new PasswordNotMatchesException();
 
-        String access = tokenProvider.createAccessToken(request.getEmail());
+        String access = tokenProvider.createAccessToken(request.getEmail(), user.getRole());
         String refresh = tokenProvider.createRefreshToken(request.getEmail());
 
         return TokenResponse.builder()
