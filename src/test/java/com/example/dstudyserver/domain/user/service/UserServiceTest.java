@@ -1,9 +1,7 @@
 package com.example.dstudyserver.domain.user.service;
 
-import com.example.dstudyserver.domain.admin.controller.dto.request.UserRequest;
 import com.example.dstudyserver.domain.user.controller.dto.request.EditProfileRequest;
 import com.example.dstudyserver.domain.user.controller.dto.response.UserResponse;
-import com.example.dstudyserver.global.jwt.UserAuthentication;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
