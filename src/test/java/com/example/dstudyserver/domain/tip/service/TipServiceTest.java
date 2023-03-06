@@ -4,7 +4,6 @@ import com.example.dstudyserver.domain.tips.controller.dto.request.TipsRequest;
 import com.example.dstudyserver.domain.tips.controller.dto.response.TipsResponse;
 import com.example.dstudyserver.domain.tips.repository.TipsRepository;
 import com.example.dstudyserver.domain.tips.service.TipsService;
-import com.example.dstudyserver.global.jwt.UserAuthentication;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
