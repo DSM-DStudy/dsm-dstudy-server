@@ -34,7 +34,7 @@ public class Study {
     private String study_time;
 
     @Column
-    private String study_profile;
+    private String study_image;
 
     @Column(length = 999999999)
     private String memo;
@@ -44,6 +44,9 @@ public class Study {
 
     @Column
     private int people_count;
+
+    @Column
+    private String creater;
 
     @OneToOne
     @JoinColumn(name = "user_id")
@@ -60,5 +63,14 @@ public class Study {
 
     public void setGoodCount(int goodCount){
         this.like_count = goodCount;
+    }
+
+    public void editStudy(String title, String content, String field, String studyTime, String studyImage, String memo) {
+        this.title = title;
+        this.content = content;
+        this.field = field;
+        this.study_time = studyTime;
+        this.study_image = studyImage;
+        this.memo = memo;
     }
 }
