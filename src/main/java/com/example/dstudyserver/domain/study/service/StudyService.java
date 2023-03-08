@@ -1,6 +1,5 @@
 package com.example.dstudyserver.domain.study.service;
 
-import com.example.dstudyserver.domain.study.controller.dto.request.EditStudyRequest;
 import com.example.dstudyserver.domain.study.controller.dto.request.StudyRequest;
 import com.example.dstudyserver.domain.study.controller.dto.response.StudyResponse;
 import com.example.dstudyserver.domain.study.entity.Study;
@@ -112,7 +111,7 @@ public class StudyService {
     }
 
     @Transactional
-    public void editStudy(int study_id, EditStudyRequest request){
+    public void editStudy(int study_id, StudyRequest request){
         Study study = studyRepository.findById(study_id).orElseThrow(StudyNotFoundException::new);
         study.editStudy(request.getTitle(), request.getContent(), request.getField(), request.getStudy_time(), request.getStudy_image(), request.getMemo());
         studyRepository.save(study);

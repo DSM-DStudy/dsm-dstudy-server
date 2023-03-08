@@ -1,6 +1,5 @@
 package com.example.dstudyserver.domain.study.controller;
 
-import com.example.dstudyserver.domain.study.controller.dto.request.EditStudyRequest;
 import com.example.dstudyserver.domain.study.controller.dto.request.StudyRequest;
 import com.example.dstudyserver.domain.study.controller.dto.response.StudyResponse;
 import com.example.dstudyserver.domain.study.service.StudyService;
@@ -17,7 +16,7 @@ public class StudyController {
     private final StudyService studyService;
 
     @PostMapping("/study")
-    public StudyResponse save(@RequestBody StudyRequest request) {
+    public StudyResponse save(@Valid @RequestBody StudyRequest request) {
         return studyService.save(request);
     }
 
@@ -42,7 +41,7 @@ public class StudyController {
     }
 
     @PatchMapping("/study/{study_id}")
-    public void editStudy(@PathVariable int study_id, @RequestBody EditStudyRequest request){
+    public void editStudy(@PathVariable int study_id, @Valid @RequestBody StudyRequest request){
         studyService.editStudy(study_id, request);
     }
 
