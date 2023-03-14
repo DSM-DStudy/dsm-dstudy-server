@@ -9,6 +9,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 
 import java.util.List;
@@ -23,8 +25,8 @@ public class TipServiceTest {
 
     @BeforeEach
     public void setUser(){
-        UserAuthentication userAuthentication = new UserAuthentication("test@gmail.com", null, null);
-        SecurityContextHolder.getContext().setAuthentication(userAuthentication);
+        Authentication authentication = new UsernamePasswordAuthenticationToken("test@gmail.com", "", null);
+        SecurityContextHolder.getContext().setAuthentication(authentication);
     }
 
     @Test
