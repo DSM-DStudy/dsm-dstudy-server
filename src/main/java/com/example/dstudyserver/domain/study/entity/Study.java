@@ -73,4 +73,8 @@ public class Study {
         this.study_image = studyImage;
         this.memo = memo;
     }
+
+    public void setPeopleCount(int peopleCount) {
+        this.people_count = peopleCount;
+    }
 }
