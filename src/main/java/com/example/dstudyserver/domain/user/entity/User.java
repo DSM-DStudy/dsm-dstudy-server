@@ -3,6 +3,7 @@ package com.example.dstudyserver.domain.user.entity;
 import com.example.dstudyserver.domain.comment.entity.Comment;
 import com.example.dstudyserver.domain.good.entity.Good;
 import com.example.dstudyserver.domain.study.entity.Study;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -36,17 +37,21 @@ public class User {
     @Column
     private String image;
 
+    @JsonIgnore
     @Column
     @Enumerated(value = EnumType.STRING)
     private Role role;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "study_id")
     private Study study;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
     private List<Good> goodList;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
     private List<Comment> commentList;
 
