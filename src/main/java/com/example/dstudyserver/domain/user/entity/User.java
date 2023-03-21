@@ -37,7 +37,6 @@ public class User {
     @Column
     private String image;
 
-    @JsonIgnore
     @Column
     @Enumerated(value = EnumType.STRING)
     private Role role;
