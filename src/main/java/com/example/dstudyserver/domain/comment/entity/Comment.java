@@ -18,10 +18,12 @@ public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
     @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
+
     @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "study_id")
